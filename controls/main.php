@@ -175,7 +175,7 @@ class Main
     
     
     /**
-     * Enregistre une nouvelle entrée dans le tableau des erreurs.
+     * Enregistre une nouvelle entrée dans la pile des erreurs.
      * 
      * @params string Le type d'erreur.
      * @params string Le message de l'erreur.
@@ -199,7 +199,7 @@ class Main
     
     public function getErrors()
     {
-        
+        return $this->errors;
     }
     
     public function getErrorsByType()

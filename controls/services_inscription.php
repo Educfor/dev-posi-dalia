@@ -7,15 +7,15 @@
  */
 
 // Fichiers requis pour le formulaire organisme
-        require_once(ROOT.'models/dao/organisme_dao.php');
-        require_once(ROOT.'models/dao/intervenant_dao.php');
-        
-        // Fichiers requis pour le formulaire utilisateur
-        require_once(ROOT.'models/dao/niveau_etudes_dao.php');
-        require_once(ROOT.'models/dao/utilisateur_dao.php');
-        require_once(ROOT.'models/dao/inscription_dao.php');
-        
-        require_once(ROOT.'utils/tools.php');
+require_once(ROOT.'models/dao/organisme_dao.php');
+require_once(ROOT.'models/dao/intervenant_dao.php');
+
+// Fichiers requis pour le formulaire utilisateur
+require_once(ROOT.'models/dao/niveau_etudes_dao.php');
+require_once(ROOT.'models/dao/utilisateur_dao.php');
+require_once(ROOT.'models/dao/inscription_dao.php');
+
+require_once(ROOT.'utils/tools.php');
         
         
 
@@ -27,11 +27,8 @@ class ServicesInscription extends Main
     private $utilisateurDAO = NULL;
     private $niveauEtudesDAO = NULL;
     private $inscriptionDAO = NULL;
-    //private $errors = array();
     
-    /**
-     * retourne un tableau des organismes selon critères
-     */
+
     public function __construct()
     {
         $this->errors = array();
@@ -46,9 +43,7 @@ class ServicesInscription extends Main
     
     
     /**
-     * public formulaire ($requestParams = array(), $returnData = array())
-     * 
-     * Fournit les données d'affichage des formulaires organisme, intervenant et utilisateur
+     * Fournit les données et affiche les formulaires organisme, intervenant et utilisateur.
      * 
      * @param array $requestParams Contient le type de formulaire
      * @param array $returnData Retour des données après validation
@@ -127,31 +122,39 @@ class ServicesInscription extends Main
     
     
     /** 
-     * Valide les formulaires organisme et utilisateur et affiche les formulaires correspondants
+     * Valide les formulaires organisme et utilisateur et affiche les formulaires correspondants.
      * 
-     * @param array $requestParams Un tableau contenant le type de formulaire à valider(ex : "organisme" ou "utilisateur")
+     * @param array $requestParams Un tableau contenant le type de formulaire à valider(ex : "organisme" ou "utilisateur") et des paramètres.
+     * 
+     * @return array $returnData Les données validées
      * 
      */
     public function validation($requestParams = array())
     {
-        // Initialisation des variables comportant la validation du formulaire courant
+        /* Initialisation des variables de validation */
+ 
+        // Données du formulaire en cours de traitement.
         $formData = array();
         
+        // Données retournées après validation.
         $returnData = array();
         $returnData['response'] = array();
         $returnData['response']['errors'] = array();
         
-        // Toutes les erreurs sont stockées dans une propriété de la classe
+        // Toutes les erreurs sont empilées dans une propriété de la superclasse Main.
         $this->errors = array();
-   
+        
+        /* $requestParams[0] contient le nom du formulaire à valider */
+        
         // Dispatch de la validation selon le formulaire à valider
         if (!isset($requestParams) && (empty($requestParams)))
         {
             $requestParams = array("organisme");
         }
 
+        
 
-
+        
         if ($requestParams[0] == "organisme")
         {
 
@@ -218,7 +221,6 @@ class ServicesInscription extends Main
             // Récupération du code s'il a été saisi
             if (!isset($_POST['code_identification']) || empty($_POST['code_identification']))
             {
-                //$this->errors[] = array('type' => "form_empty", 'message' => "Aucun code organisme n'a été saisi");
                 $this->registerError("form_empty", "Aucun code organisme n'a été saisi");
             }
             else 
@@ -323,14 +325,18 @@ class ServicesInscription extends Main
 
                 
                 /*--- Valeurs finales des champs qui seront inserés dans la table organisme ---*/
-
+                
+                // Valeurs impératives
                 $dataOrganisme['ref_code_organ'] = $formData['ref_code_organ'];
-                $dataOrganisme['nom_organ'] = $formData['nom_organ'];
+                $dataOrganisme['nom_organ'] = $formData['nom_organ']; 
+                $dataOrganisme['code_postal_organ'] = $formData['code_postal_organ'];
+                $dataOrganisme['tel_organ'] = $formData['tel_organ'];
+                
+                // Valeurs optionnelles (non-implémenté)
+                // (à mettre en commentaire si on ne s'en sert pas !)
                 //$dataOrganisme['numero_interne'] = $formData['numero_interne'];
                 //$dataOrganisme['adresse_organ'] = $formData['adresse_organ'];
-                $dataOrganisme['code_postal_organ'] = $formData['code_postal_organ'];
                 //$dataOrganisme['ville_organ'] = $formData['ville_organ'];
-                $dataOrganisme['tel_organ'] = $formData['tel_organ'];
                 //$dataOrganisme['fax_organ'] = $formData['fax_organ'];
                 //$dataOrganisme['email_organ'] = $formData['email_organ'];
             }
@@ -380,10 +386,10 @@ class ServicesInscription extends Main
             
             /*--- Valeurs finales des champs qui seront inserés dans la table intervenant ---*/
             
+            $dataIntervenant['email_intervenant'] = $formData['email_intervenant'];
             //$dataIntervenant['nom_intervenant'] = $formData['nom_intervenant'];
             //$dataIntervenant['tel_intervenant'] = $formData['tel_intervenant'];
-            $dataIntervenant['email_intervenant'] = $formData['email_intervenant'];
-
+            
 
             /*--- Insertion de l'organisme ---*/
             
@@ -392,9 +398,10 @@ class ServicesInscription extends Main
                 // Tous les champs obligatoires de l'organisme doivent être remplis
                 if (!empty($formData['code_identification']) && (!empty($formData['nom_organ']) && empty($formData['ref_organ'])) && !empty($formData['code_postal_organ']))
                 {
-                    // S'il n'y a aucune erreur
+                    // Et s'il n'y a aucune erreur
                     if (empty($this->errors)) 
                     {
+                        // Requête d'insertion de l'organisme
                         $resultsetOrganisme = $this->addOrganisme($dataOrganisme, $modeOrganisme);
 
                         // si la requête d'insertion est correcte, on récupére l'id de l'organisme inseré
@@ -418,8 +425,8 @@ class ServicesInscription extends Main
             // L'email de l'intervenant est obligatoire pour l'insertion de l'intervenant
             if (!empty($formData['email_intervenant']))
             {
-                // S'il n'y a aucune erreur
-                if (empty($this->errors)) 
+                // Et s'il n'y a aucune erreur
+                if (empty($this->errors))
                 {
                     // On a besoin de la référence organisme liée à l'intervenant
                     if (isset($formData['ref_organ']) && !empty($formData['ref_organ']))
