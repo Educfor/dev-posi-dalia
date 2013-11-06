@@ -1,0 +1,260 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-image:url(../images/fond-login.png);
+	background-repeat:repeat-x;
+	background-color:#eaedf1;
+	font-family:Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+#content{
+	width:650px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+}
+#titre-page{
+	width:260px;
+	float:left;
+}
+
+#logo{
+	width:260px;
+	height:200px;
+	background-color:#FFF;
+	background-image:url(../images/logo.png);
+	background-repeat:no-repeat;
+	float:left;
+}
+
+#posi-titre{
+	width:260px;
+	height:86px;
+	background-color:#1fbba6;
+	margin-top:20px;
+	background-image:url(../images/img-vert-titre-posi.jpg);
+	float:left;
+}
+#posi-titre-admin{
+	width:260px;
+	height:86px;
+	background-color:#f75556;
+	margin-top:20px;
+	background-image:url(../images/img-rouge-titre-posi.png);
+	float:left;
+}
+.placeholder { color: #999999; }
+
+#txt-titre{
+	width:172px;
+	height:50px;
+	padding-left:75px;
+	padding-top:29px;
+	color:#FFF;
+	font-weight:bold;
+}
+
+#zone-formu input:required{
+    background-color:#ffffff;
+}
+
+#zone-formu input:focus:required:valid{
+    background-color:#eff8f3;
+	border:1px solid #88d7a6;outline:medium none;
+}
+
+#zone-formu input:focus:required:invalid{
+    background-color:#f9f6f6;
+	border:1px solid #db8f8f;outline:medium none;
+}
+
+
+
+/*-----------------------------------------------------------------------*/
+
+#zone-formu form{display:inline-block;vertical-align:top;width:545px;margin:0;}
+#zone-formu label{color:#6a6a6a;display:block;font-family:Amaranth,Tahoma,sans-serif;font-size:12px;margin-left:5px;font-weight:260;}
+#zone-formu input{background:none repeat scroll 0 0 #ffffff ;border:1px solid #C3C9CF;border-radius:5px 5px 5px 5px;font-size:12px;height:30px;line-height:20px;width:260px;padding:0 10px;}
+#zone-formu select{background:none repeat scroll 0 0 ;border:1px solid #C3C9CF;border-radius:5px 5px 5px 5px;font-size:12px;height:30px;line-height:20px;width:280px; margin-bottom:10px;}
+#zone-formu input:focus,#contact textarea:focus{border:1px solid #cccccc;outline:medium none; background-color:#FFF;}
+.asterix { color:#F00; display:inline;}
+
+
+#zone-formu #submit input{
+ cursor:pointer;
+ background-color:#f7a22f;
+ font-weight:bold;
+ color:#FFF;
+ width:196px;
+ height:40px;
+ border:0;
+ margin-top:45px;
+ margin-left:50px;
+ font-size:16px;
+}
+
+#zone-formu #submit input[type="submit"]:hover{
+ cursor:pointer;
+ background-color:#f3a842;
+ font-weight:bold;
+ color:#FFF;
+ width:196px;
+ height:40px;
+ border:0;
+ margin-top:45px;
+ margin-left:50px;
+ font-size:16px;
+}
+
+
+#error{
+	background-color:#f9f6f6;
+	border:1px solid #db8f8f;outline:medium none;
+	padding:10px;
+	margin-bottom:15px;
+	
+}
+
+
+/*------------------------------ORGANISME----------------------------------*/
+#organisme{
+	background-color:#FFF;
+	width:363px;
+	float:right;
+}
+#zone-formu{
+	padding:35px;	
+}
+#ico-orga{
+	background-image:url(../images/ico-orga.jpg);
+	background-repeat:no-repeat;
+	padding-left:40px;
+	padding-top:5px;
+	height:34px;
+	color:#8d8d8d;
+	text-transform:uppercase;
+	font-size:16px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+input[type=text], input[type=email], input[type=tel]   {
+ width:280px;
+ height:30px;
+ cursor:pointer;
+ margin-bottom:10px;
+ }
+
+
+.txt-info{
+	font-size:10px;
+	color:#f9ab2e;
+	margin-bottom:10px;
+}
+/*------------------------------------------------------------------*/
+
+/*------------------------------Utilisateur-----------------------*/
+#utilisateur{
+	margin-top:30px;
+	background-color:#FFF;
+	width:363px;
+	float:right;
+	margin-bottom:15px;
+}
+
+#ico-utili{
+	background-image:url(../images/ico-utili.jpg);
+	background-repeat:no-repeat;
+	padding-left:40px;
+	padding-top:5px;
+	height:34px;
+	color:#8d8d8d;
+	text-transform:uppercase;
+	font-size:16px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+/*------------------------------Login Administrateur-----------------------*/
+#administrateur-login{
+	background-color:#FFF;
+	width:363px;
+	float:right;
+	margin-bottom:15px;
+}
+
+#ico-utili{
+	background-image:url(../images/ico-utili.jpg);
+	background-repeat:no-repeat;
+	padding-left:40px;
+	padding-top:5px;
+	height:34px;
+	color:#8d8d8d;
+	text-transform:uppercase;
+	font-size:16px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+/*-----------------------------------------CSS-liste-deroulante-organisme-----------------------------------------*/
+
+#second-form{ display:none; padding:5px; background-color:#f5fbfa; border:#1fbba6 1px solid;  border-radius:5px 5px 5px 5px;margin-bottom:10px;}
+/*#second-form input { background-color:#ffff; border-color:#168778; }*/
+#second-form label { color:#1e6a60; font-weight:bold;}
+
+
+
+/*----------------------------------------------FOOTER-----------------------------------------*/
+
+#footer{ background-image:url(../images/footer-page.jpg); background-repeat:repeat-x; float:right; width:100%; text-align:center; color:#b3b3b3;margin-bottom:10px; padding-top:7px; margin-top:10px;}
+#txt-footer{ color:#b3b3b3;}
+
+
+/*----------------------------------------Page-admin-menu-----------------------------------------------*/
+
+.txt-btn-menu-admin{
+	color:#FFF;
+	font-weight:bold;
+	
+	padding-top:11px;
+	width:100%;
+	text-align:center;		
+	
+}
+
+#bt-admin-menu-ajout{
+	background-image:url(../images/ico-ajout.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	background-color:#f7a22f;
+	height:40px;
+}
+#bt-admin-menu-modif{
+	background-image:url(../images/ico-modif.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	background-color:#1fbba6;
+	height:40px;
+	margin-top:10px;
+}
+#bt-admin-menu-sup{
+	background-image:url(../images/ico-sup.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	background-color:#f75556;
+	height:40px;
+	margin-top:10px;
+}
+
+#bt-admin-menu-ajout:hover, #bt-admin-menu-modif:hover, #bt-admin-menu-sup:hover{
+	box-shadow:#e4e4e4 1px 1px 1px 1px;	
+}
+
+/*------------------------------------------------------------------------------------------*/
+
+
+
+
+
+	
