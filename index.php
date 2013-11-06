@@ -1,7 +1,7 @@
 <?php
 
 /**
- * L'index sert de dispatcheur de pages
+ * Sert de dispatcheur de pages.
  *
  * @author Nicolas Beurion
  */
@@ -12,6 +12,7 @@ define('SERVER_URL', 'http://'.$_SERVER['HTTP_HOST'].WEBROOT);
 
 
 require(ROOT.'header.php');
+
 require(ROOT.'controls/main.php');
 
 //$requestParams = array();

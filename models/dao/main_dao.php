@@ -6,7 +6,7 @@
  * @author Nicolas Beurion
  */
 
-require_once('models/dao/pbo_connect_db.php');
+require_once(ROOT.'models/dao/pbo_connect_db.php');
 
 
 class MainDAO 

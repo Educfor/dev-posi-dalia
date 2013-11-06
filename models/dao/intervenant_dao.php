@@ -7,7 +7,7 @@
  * @author Nicolas Beurion
  */
 
-require_once('models/dao/main_dao.php');
+require_once(ROOT.'models/dao/main_dao.php');
 
 // Inclusion du fichier de la classe Intervenant
 require_once(ROOT.'models/intervenant.php');

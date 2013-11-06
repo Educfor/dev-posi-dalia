@@ -6,6 +6,18 @@
  * @author Nicolas Beurion
  */
 
+// Fichiers requis pour le formulaire organisme
+        require_once(ROOT.'models/dao/organisme_dao.php');
+        require_once(ROOT.'models/dao/intervenant_dao.php');
+        
+        // Fichiers requis pour le formulaire utilisateur
+        require_once(ROOT.'models/dao/niveau_etudes_dao.php');
+        require_once(ROOT.'models/dao/utilisateur_dao.php');
+        require_once(ROOT.'models/dao/inscription_dao.php');
+        
+        require_once(ROOT.'utils/tools.php');
+        
+        
 
 class ServicesInscription extends Main
 {
@@ -24,18 +36,7 @@ class ServicesInscription extends Main
     {
         $this->errors = array();
         $this->controllerName = "inscription";
-        
-        // Fichiers requis pour le formulaire organisme
-        require_once('models/dao/organisme_dao.php');
-        require_once('models/dao/intervenant_dao.php');
-        
-        // Fichiers requis pour le formulaire utilisateur
-        require_once('models/dao/niveau_etudes_dao.php');
-        require_once('models/dao/utilisateur_dao.php');
-        require_once('models/dao/inscription_dao.php');
-        
-        require_once('utils/tools.php');
-        
+
         $this->organismeDAO = new OrganismeDAO();
         $this->intervenantDAO = new IntervenantDAO();
         $this->utilisateurDAO = new UtilisateurDAO();
