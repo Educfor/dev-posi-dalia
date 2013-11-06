@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description de index.php
+ * L'index sert de dispatcheur de pages
  *
  * @author Nicolas Beurion
  */
