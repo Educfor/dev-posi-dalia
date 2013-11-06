@@ -27,7 +27,7 @@ class Tools {
             
         }
         
-        echo "\$toggleDate = ".$toggleDate."<br />";
+        //echo "\$toggleDate = ".$toggleDate."<br />";
         return  $toggleDate;
     }
     
